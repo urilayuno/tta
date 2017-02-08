@@ -8,6 +8,7 @@ import javax.swing.JCheckBox;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
+import javax.swing.JRadioButtonMenuItem;
 
 import controladores.EjecutorPregunta;
 import modelos.Pregunta;
@@ -17,6 +18,7 @@ public class VentanaPregunta extends JFrame{
 	private static JRadioButton botonB;
 	private static JButton botonAceptar;
 	//TODO grupo de radio buttons
+	private static JRadioButtonMenuItem p;
 	
 	private JPanel panelBoton;
 	
