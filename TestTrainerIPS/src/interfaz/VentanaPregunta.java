@@ -1,24 +1,18 @@
 package interfaz;
 
 import java.awt.BorderLayout;
-import java.awt.LayoutManager;
-
-import javax.swing.JButton;
-import javax.swing.JCheckBox;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.JRadioButton;
-import javax.swing.JRadioButtonMenuItem;
+import javax.swing.*;
 
 import controladores.EjecutorPregunta;
 import modelos.Pregunta;
 
 public class VentanaPregunta extends JFrame{
-	private static JRadioButton botonA;
-	private static JRadioButton botonB;
+	private static JRadioButton opcionA;
+	private static JRadioButton opcionB;
+	private static JRadioButton opcionC;
 	private static JButton botonAceptar;
+	private ButtonGroup grupoOpciones;
 	//TODO grupo de radio buttons
-	private static JRadioButtonMenuItem p;
 	
 	private JPanel panelBoton;
 	
@@ -27,26 +21,44 @@ public class VentanaPregunta extends JFrame{
 	
 	public VentanaPregunta() {
 		panelBoton = new JPanel();
+		JPanel panelOpciones = new JPanel();
+		JPanel titulo = new JPanel();
+
 		botonAceptar = new JButton("Aceptar");
-		botonA = new JRadioButton("a)");
-		botonB = new JRadioButton("b)");
+		opcionA = new JRadioButton("a)");
+		opcionB = new JRadioButton("b)");
+		opcionC = new JRadioButton("c)");
+
+		grupoOpciones = new ButtonGroup();
+
+		grupoOpciones.add(opcionA);
+		grupoOpciones.add(opcionB);
+		grupoOpciones.add(opcionC);
 		
 		botonAceptar.addActionListener(ejecutorPregunta);
 		
 		panelBoton.add(botonAceptar);
-//		this.setLayout();
+
+		panelOpciones.setLayout(new BoxLayout(panelOpciones, BoxLayout.PAGE_AXIS));
+		panelOpciones.add(opcionA);
+		panelOpciones.add(opcionB);
+		panelOpciones.add(opcionC);
+
+		//TODO Corregir como aparecen los botones, pegarlos al marco izquierdo
+
 		this.setSize(500, 500);
 		this.setVisible(true);
-		this.add(botonA);
-		this.add(botonB);
+		this.setLayout(new BoxLayout(this.getContentPane(), BoxLayout.PAGE_AXIS));
+		this.add(titulo);
+		this.add(panelOpciones, BorderLayout.WEST);
 		this.add(panelBoton, BorderLayout.SOUTH);
 	}
 	
 	public static JRadioButton getSelectedCheckBox() {
 		JRadioButton checkBox = null;
 		
-		if(botonA.isSelected()) {
-			checkBox = botonA;
+		if(opcionA.isSelected()) {
+			checkBox = opcionA;
 		}
 		
 		return checkBox;
