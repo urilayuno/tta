@@ -9,7 +9,6 @@ public class EjecutorPregunta implements ActionListener{
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
 		if(e.getSource().equals(VentanaPregunta.getBotonAceptar())) {
 			if(VentanaPregunta.getSelectedCheckBox().getText().equals("a)")){
 				System.out.println("Has seleccionado la a");

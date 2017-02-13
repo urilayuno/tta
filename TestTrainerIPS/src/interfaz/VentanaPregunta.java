@@ -12,7 +12,6 @@ public class VentanaPregunta extends JFrame{
 	private static JRadioButton opcionC;
 	private static JButton botonAceptar;
 	private ButtonGroup grupoOpciones;
-	//TODO grupo de radio buttons
 	
 	private JPanel panelBoton;
 	
