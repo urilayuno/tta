@@ -12,11 +12,13 @@ public class VentanaPregunta extends JFrame{
 	private static JRadioButton opcionC;
 	private static JButton botonAceptar;
 	private ButtonGroup grupoOpciones;
+	private JLabel enunciado;
 	
 	private JPanel panelBoton;
 	
 	private EjecutorPregunta ejecutorPregunta = new EjecutorPregunta();
 	
+	private static Pregunta preguntaActual;
 	
 	public VentanaPregunta() {
 		panelBoton = new JPanel();
@@ -24,6 +26,7 @@ public class VentanaPregunta extends JFrame{
 		JPanel titulo = new JPanel();
 
 		botonAceptar = new JButton("Aceptar");
+		enunciado = new JLabel();
 		opcionA = new JRadioButton("a)");
 		opcionB = new JRadioButton("b)");
 		opcionC = new JRadioButton("c)");
@@ -39,6 +42,7 @@ public class VentanaPregunta extends JFrame{
 		panelBoton.add(botonAceptar);
 
 		panelOpciones.setLayout(new BoxLayout(panelOpciones, BoxLayout.PAGE_AXIS));
+		panelOpciones.add(enunciado);
 		panelOpciones.add(opcionA);
 		panelOpciones.add(opcionB);
 		panelOpciones.add(opcionC);
@@ -58,6 +62,10 @@ public class VentanaPregunta extends JFrame{
 		
 		if(opcionA.isSelected()) {
 			checkBox = opcionA;
+		} else if (opcionB.isSelected()) {
+			checkBox = opcionB;
+		} else {
+			checkBox = opcionC;
 		}
 		
 		return checkBox;
@@ -69,5 +77,15 @@ public class VentanaPregunta extends JFrame{
 	
 	public void setValues(Pregunta pregunta){
 		
+		preguntaActual = pregunta;
+		
+		enunciado.setText(pregunta.getEnunciado());
+		opcionA.setText(pregunta.getOpcion1());
+		opcionB.setText(pregunta.getOpcion2());
+		opcionC.setText(pregunta.getOpcion3());
+	}
+	
+	public static String getRespuestaCorrecta() {
+		return preguntaActual.getOpcionCorrecta();
 	}
 }

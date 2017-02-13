@@ -41,5 +41,25 @@ public class Pregunta {
 			opcionCorrecta = opcion3;
 		}
 	}
+	
+	public String getOpcion1() {
+		return opcion1;
+	}
+	
+	public String getOpcion2() {
+		return opcion2;
+	}
+	
+	public String getOpcion3() {
+		return opcion3;
+	}
+	
+	public String getOpcionCorrecta() {
+		return opcionCorrecta;
+	}
+	
+	public String getEnunciado() {
+		return pregunta;
+	}
 
 }
